@@ -1,6 +1,6 @@
 package com.chess.board;
 
-import com.chess.board.squares.Square;
+import com.chess.common.Square;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -16,26 +16,26 @@ public class BoardTest {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
-        expectedBoardContent = Arrays.asList("Location{file=A, rank=1}", "Location{file=B, rank=1}", "Location{file=C, rank=1}", "Location{file=D, rank=1}", "Location{file=E, rank=1}", "Location{file=F, rank=1}", "Location{file=G, rank=1}", "Location{file=H, rank=1}",
-                "Location{file=A, rank=2}", "Location{file=B, rank=2}", "Location{file=C, rank=2}", "Location{file=D, rank=2}", "Location{file=E, rank=2}", "Location{file=F, rank=2}", "Location{file=G, rank=2}", "Location{file=H, rank=2}",
-                "Location{file=A, rank=3}", "Location{file=B, rank=3}", "Location{file=C, rank=3}", "Location{file=D, rank=3}", "Location{file=E, rank=3}", "Location{file=F, rank=3}", "Location{file=G, rank=3}", "Location{file=H, rank=3}",
-                "Location{file=A, rank=4}", "Location{file=B, rank=4}", "Location{file=C, rank=4}", "Location{file=D, rank=4}", "Location{file=E, rank=4}", "Location{file=F, rank=4}", "Location{file=G, rank=4}", "Location{file=H, rank=4}",
-                "Location{file=A, rank=5}", "Location{file=B, rank=5}", "Location{file=C, rank=5}", "Location{file=D, rank=5}", "Location{file=E, rank=5}", "Location{file=F, rank=5}", "Location{file=G, rank=5}", "Location{file=H, rank=5}",
-                "Location{file=A, rank=6}", "Location{file=B, rank=6}", "Location{file=C, rank=6}", "Location{file=D, rank=6}", "Location{file=E, rank=6}", "Location{file=F, rank=6}", "Location{file=G, rank=6}", "Location{file=H, rank=6}",
-                "Location{file=A, rank=7}", "Location{file=B, rank=7}", "Location{file=C, rank=7}", "Location{file=D, rank=7}", "Location{file=E, rank=7}", "Location{file=F, rank=7}", "Location{file=G, rank=7}", "Location{file=H, rank=7}",
-                "Location{file=A, rank=8}", "Location{file=B, rank=8}", "Location{file=C, rank=8}", "Location{file=D, rank=8}", "Location{file=E, rank=8}", "Location{file=F, rank=8}", "Location{file=G, rank=8}", "Location{file=H, rank=8}");
+        expectedBoardContent = Arrays.asList("A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8",
+                "A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7",
+                "A6", "B6", "C6", "D6", "E6", "F6", "G6", "H6",
+                "A5", "B5", "C5", "D5", "E5", "F5", "G5", "H5",
+                "A4", "B4", "C4", "D4", "E4", "F4", "G4", "H4",
+                "A3", "B3", "C3", "D3", "E3", "F3", "G3", "H3",
+                "A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2",
+                "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1");
     }
 
     @Test
     public void testBoard() {
         Board board = new Board();
         Integer boardContentIndex = 0;
-        for (Square squares[] : board.getBoardSquares()) {
+        for (Square squares[] : board.getBoard()) {
+
             for (Square square : squares) {
-                assertThat("Test Board Content :", square.getLocation().toString(),
+                assertThat("Test Board Content :", square.toString(),
                         is(equalToIgnoringCase(expectedBoardContent.get(boardContentIndex++))));
             }
         }
-
     }
 }

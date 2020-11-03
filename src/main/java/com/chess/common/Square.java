@@ -1,12 +1,12 @@
-package com.chess.board.squares;
+package com.chess.common;
 
 import java.util.Objects;
 
-public class Location {
+public class Square {
     private final File file;
     private final Integer rank;
 
-    public Location(File file, Integer rank) {
+    public Square(File file, Integer rank) {
         this.file = file;
         this.rank = rank;
     }
@@ -23,9 +23,9 @@ public class Location {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Location location = (Location) o;
-        return file == location.file &&
-                Objects.equals(rank, location.rank);
+        Square square = (Square) o;
+        return file == square.file &&
+                Objects.equals(rank, square.rank);
     }
 
     @Override
@@ -35,9 +35,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "file=" + file +
-                ", rank=" + rank +
-                '}';
+        return file.toString() + rank;
     }
 }

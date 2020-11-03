@@ -1,26 +1,26 @@
 package com.chess.board;
 
-import com.chess.board.squares.File;
-import com.chess.board.squares.Location;
-import com.chess.board.squares.Square;
+import com.chess.common.File;
+import com.chess.common.Square;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Board {
-    private Square[][] boardSquares = new Square[File.values().length][8];
+    private static final Integer BOARD_LENGTH = 8;
+    private Square[][] boardSquares = new Square[BOARD_LENGTH][BOARD_LENGTH];
 
     public Board() {
-        IntStream.range(0, 8).forEach(this::fillRows);
+        IntStream.range(0, BOARD_LENGTH).forEach(this::fillRows);
     }
 
-    private void fillRows(Integer row) {
+    private void fillRows(Integer rowNumber) {
         Arrays.stream(File.values()).forEach(file -> {
-            boardSquares[row][file.ordinal()] = new Square(new Location(file, row + 1));
+            boardSquares[rowNumber][file.ordinal()] = new Square(file, BOARD_LENGTH - rowNumber);
         });
     }
 
-    public Square[][] getBoardSquares() {
+    public Square[][] getBoard() {
         return boardSquares;
     }
 }
