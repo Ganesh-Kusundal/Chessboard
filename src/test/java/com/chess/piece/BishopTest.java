@@ -16,13 +16,14 @@ public class BishopTest {
     @Before
     public void before() {
         board = new Board();
-        currentPosition = new Square(File.A, 1);
+        currentPosition = new Square(File.D, 5);
     }
 
     @Test
     public void getPossibleMoves() {
         Piece piece = new Bishop();
-        assertThat("Bishop's possible moves :", piece.getPossibleMoves(board, currentPosition),
-                is(""));
+        piece.initialize(board, currentPosition);
+        assertThat("Bishop's possible moves :", piece.getPossibleMoves().toString(),
+                is("[E4, F3, G2, H1, E6, F7, G8, C6, B7, A8, C4, B3, A2]"));
     }
 }

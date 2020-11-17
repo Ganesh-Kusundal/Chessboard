@@ -1,5 +1,7 @@
 package com.chess.common;
 
+import com.chess.board.Board;
+
 import java.util.Objects;
 
 public class Square {
@@ -15,8 +17,16 @@ public class Square {
         return file;
     }
 
+    public Integer getFileValue() {
+        return file.getValue();
+    }
+
     public Integer getRank() {
         return rank;
+    }
+
+    public Integer getBoardRelativeRank() {
+        return Board.BOARD_LENGTH - rank;
     }
 
     @Override

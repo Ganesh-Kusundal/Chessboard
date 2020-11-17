@@ -22,7 +22,8 @@ public class KingTest {
     @Test
     public void getPossibleMoves() {
         Piece piece = new King();
-        assertThat("King's possible moves :", piece.getPossibleMoves(board, currentPosition),
-                is("D6, E6, E5, E4, D4, C4, C5, C6"));
+        piece.initialize(board, currentPosition);
+        assertThat("King's possible moves :", piece.getPossibleMoves().toString(),
+                is("[D6, E6, E5, E4, D4, C4, C5, C6]"));
     }
 }

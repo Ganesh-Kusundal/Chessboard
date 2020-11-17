@@ -1,12 +1,11 @@
 package com.chess.piece;
 
-import com.chess.board.Board;
-import com.chess.common.Square;
+import java.util.List;
 
-public class Pawn implements Piece {
+public class Pawn extends Piece {
 
     @Override
-    public String getPossibleMoves(Board board, Square currentPosition) {
+    public List<String> getPossibleMoves() {
         return null;
     }
 }

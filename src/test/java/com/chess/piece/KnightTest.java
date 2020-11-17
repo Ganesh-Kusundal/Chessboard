@@ -16,13 +16,14 @@ public class KnightTest {
     @Before
     public void before() {
         board = new Board();
-        currentPosition = new Square(File.A, 1);
+        currentPosition = new Square(File.D, 5);
     }
 
     @Test
     public void getPossibleMoves() {
         Piece piece = new Knight();
-        assertThat("Knight's possible moves :", piece.getPossibleMoves(board, currentPosition),
-                is("A2, A3, A4, A5, A6, A7, A8, B1, C1, D1, E1, F1, G1, H1"));
+        piece.initialize(board, currentPosition);
+        assertThat("Knight's possible moves :", piece.getPossibleMoves().toString(),
+                is("[F4, E3, C3, B4, B6, C7, E7, F6]"));
     }
 }

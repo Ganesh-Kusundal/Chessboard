@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Board {
-    private static final Integer BOARD_LENGTH = 8;
+    public static final Integer BOARD_LENGTH = 8;
     private Square[][] boardSquares = new Square[BOARD_LENGTH][BOARD_LENGTH];
 
     public Board() {
@@ -22,5 +22,13 @@ public class Board {
 
     public Square[][] getBoard() {
         return boardSquares;
+    }
+
+    public Square getSquare(int i, int j) {
+        return boardSquares[i][j];
+    }
+
+    public String getSquareLocation(int i, int j) {
+        return boardSquares[i][j].toString();
     }
 }

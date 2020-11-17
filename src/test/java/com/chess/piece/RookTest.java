@@ -16,13 +16,14 @@ public class RookTest {
     @Before
     public void before() {
         board = new Board();
-        currentPosition = new Square(File.A, 1);
+        currentPosition = new Square(File.D, 5);
     }
 
     @Test
     public void getPossibleMoves() {
         Piece piece = new Rook();
-        assertThat("Rook's possible moves :", piece.getPossibleMoves(board, currentPosition),
-                is("A2, A3, A4, A5, A6, A7, A8, B1, C1, D1, E1, F1, G1, H1"));
+        piece.initialize(board, currentPosition);
+        assertThat("Rook's possible moves :", piece.getPossibleMoves().toString(),
+                is("[E5, F5, G5, H5, D4, D3, D2, D1, C5, B5, A5, D6, D7, D8]"));
     }
 }
